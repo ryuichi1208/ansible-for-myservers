@@ -1,0 +1,31 @@
+---
+
+working_directory:
+  - "/root/repo"
+  - "/tmp/work"
+
+install_packages:
+  - gcc.x86_64
+  - git.x86_64
+  - curl.x86_64
+  - wget.x86_64
+  - python3.x86_64
+  - python3-pip.noarch
+  - bash-completion.noarch
+
+clone_repo_list:
+  - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo"}
+
+kernel_parameter:
+  - {"name": "net.core.somaxconn", "value": 8192}
+  - {"name": "net.core.rmem_max", "value": 16777216}
+  - {"name": "net.core.wmem_max", "value": 16777216}
+  - {"name": "net.ipv4.tcp_fin_timeout ", "value": 5}
+  - {"name": "net.ipv4.tcp_syn_retries", "value": 3}
+  - {"name": "net.ipv4.tcp_syncookies", "value": 1}
+  - {"name": "net.ipv4.ip_local_port_range", "value": "10000 65535"}
+  - {"name": "net.ipv4.tcp_tw_reuse", "value": 1}
+  - {"name": "net.core.netdev_max_backlog", "value": 65536}
+  - {"name": "net.ipv4.tcp_rfc1337", "value": 1}
+  - {"name": "fs.file-max", "value": 5242880}
+  - {"name": "vm.swappiness", "value": 1}

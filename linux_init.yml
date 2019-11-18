@@ -1,0 +1,13 @@
+---
+- name: Initialize OS setting for Linux Servers
+  hosts: linux_servers
+  become: true
+  become_user: root
+  become_method: su
+  gather_facts: false
+
+  roles:
+    - name: common/kernel
+    - name: common/locale
+    - name: common/packages
+    - name: common/network

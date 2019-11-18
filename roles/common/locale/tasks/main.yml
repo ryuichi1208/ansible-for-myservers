@@ -1,0 +1,8 @@
+---
+
+- name: Change TimeZone to Asia/Tokyo
+  file:
+    path: /etc/localtime
+    state: link
+    src: /usr/share/zoneinfo/Asia/Tokyo
+    force: true

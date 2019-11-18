@@ -1,0 +1,10 @@
+---
+
+- name: Setting Kernel Parameter
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+    ignoreerrors: yes
+  with_items:
+    - "{{ kernel_parameter }}"

@@ -1,0 +1,21 @@
+---
+
+- name: Install basic packages
+  yum:
+    name: "{{ install_packages }}"
+
+- name: Make Working Directory
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+  with_items:
+    - "{{ working_directory }}"
+
+- name: Clone Reposytory
+  git:
+    repo: "{{ item.name }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - "{{ clone_repo_list }}"
+
