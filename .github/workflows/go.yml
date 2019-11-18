@@ -1,4 +1,4 @@
-name: go
+name: ansible-playbook-test
 
 on:
   push:
