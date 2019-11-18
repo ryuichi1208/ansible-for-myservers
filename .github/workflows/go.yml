@@ -15,15 +15,4 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
-      - name: Install Ansible
-        run: |
-          sudo apt update
-          sudo apt install software-properties-common
-          sudo apt-add-repository ppa:ansible/ansible
-          sudo apt update
-          sudo apt install ansible
-      - name: Check Ansible Version
-        run: 
-          ansible-playbook --version
-      - name: Check Ansible Syntax
-          ansible-playbook -i inventory/inventory.ini linux_init.yml --syntax-check
+
