@@ -6,6 +6,13 @@
   become_method: su
   gather_facts: false
 
+  pre_tasks:
+    - name: Update yum packages
+      yum:
+        name: "*"
+        state: latest
+        update_cache: true
+
   roles:
     - name: common/kernel
     - name: common/locale

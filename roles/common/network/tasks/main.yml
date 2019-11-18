@@ -5,3 +5,13 @@
     name: NetworkManager
     state: started
     enabled: true
+
+- name: Stop Firewalld
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: false
+
+- name: Disable SELinux
+  selinux:
+    state: disabled

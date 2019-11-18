@@ -6,3 +6,9 @@
     state: link
     src: /usr/share/zoneinfo/Asia/Tokyo
     force: true
+
+- name: Start chronyd
+  systemd:
+    name: chronyd
+    state: started
+    enabled: true
