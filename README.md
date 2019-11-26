@@ -3,7 +3,7 @@ Setup repository for my cute servers.
 
 ## Ansible style guide
 
-* 
+* For my servers
 
 ## Execution method
 
@@ -15,5 +15,5 @@ $ ansible-playbook -i inventory/inventory.ini linux_init.yml --syntax-check
 $ ansible-playbook -i inventory/inventory.ini linux_init.yml --check
 
 # exec
-ansible-playbook -i inventory/inventory.ini linux_init.yml
+$ ansible-playbook -i inventory/inventory.ini linux_init.yml
 ```

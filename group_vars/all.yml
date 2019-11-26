@@ -14,6 +14,11 @@ install_packages:
   - python3.x86_64
   - python3-pip.noarch
   - bash-completion.noarch
+  - tcpdump
+  - net-tools
+  - hping3
+  - strace
+  - dstat
 
 clone_repo_list:
   - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo"}
@@ -22,6 +27,7 @@ kernel_parameter:
   - {"name": "net.core.somaxconn", "value": 8192}
   - {"name": "net.core.rmem_max", "value": 16777216}
   - {"name": "net.core.wmem_max", "value": 16777216}
+  - {"name": "net.ipv4.tcp_max_syn_backlog", "value": 8192}
   - {"name": "net.ipv4.tcp_fin_timeout ", "value": 5}
   - {"name": "net.ipv4.tcp_syn_retries", "value": 3}
   - {"name": "net.ipv4.tcp_syncookies", "value": 1}
