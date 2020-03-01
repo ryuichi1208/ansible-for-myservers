@@ -5,20 +5,24 @@ working_directory:
   - "/tmp/work"
 
 install_packages:
+  - autoconf
+  - bash-completion.noarch
+  - curl.x86_64
+  - dstat
   - epel-release
-  - sysstat.x86_64
+  # - hping3
   - gcc.x86_64
   - git.x86_64
-  - curl.x86_64
-  - wget.x86_64
   - python3.x86_64
   - python3-pip.noarch
-  - bash-completion.noarch
-  - tcpdump
+  - make
   - net-tools
-  - hping3
   - strace
-  - dstat
+  - sysstat.x86_64
+  - tcpdump
+  # - tig
+  - wget.x86_64
+  - zsh
 
 clone_repo_list:
   - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo"}
