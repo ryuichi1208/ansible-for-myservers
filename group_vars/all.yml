@@ -28,6 +28,7 @@ install_packages:
 
 clone_repo_list:
   - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo"}
+  - {"name": "https://github.com/vim/vim.git", "dest": "/root/repo"}
 
 kernel_parameter:
   - {"name": "net.core.somaxconn", "value": 8192}
