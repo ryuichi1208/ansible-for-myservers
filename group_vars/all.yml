@@ -10,19 +10,19 @@ install_packages:
   - curl.x86_64
   - dstat
   - epel-release
-  # - hping3
   - gcc.x86_64
   - git.x86_64
+  - golang.x86_64 
+  - jq.x86_64
   - python3.x86_64
   - python3-pip.noarch
-  - make
-  - net-tools
+  - make.x86_64 
+  - net-tools.x86_64 
   - strace
   - sysstat.x86_64
   - tcpdump
-  # - tig
   - wget.x86_64
-  - zsh
+  - zsh.x86_64
 
 clone_repo_list:
   - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo"}
