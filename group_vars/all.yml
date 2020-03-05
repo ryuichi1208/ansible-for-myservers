@@ -21,9 +21,10 @@ install_packages:
   - make.x86_64
   - ncurses-devel.x86_64
   - net-tools.x86_64
-  - strace
+  - strace.x86_64
   - sysstat.x86_64
-  - tcpdump
+  - tcpdump.x86_64
+  - telnet.x86_64
   - wget.x86_64
   - zsh.x86_64
 
