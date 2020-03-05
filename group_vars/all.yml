@@ -12,14 +12,15 @@ install_packages:
   - epel-release
   - gcc.x86_64
   - git.x86_64
-  - golang.x86_64 
+  - golang.x86_64
   - jq.x86_64
+  - luajit.x86_64
   - lua-devel.x86_64
   - python3.x86_64
   - python3-pip.noarch
-  - make.x86_64 
+  - make.x86_64
   - ncurses-devel.x86_64
-  - net-tools.x86_64 
+  - net-tools.x86_64
   - strace
   - sysstat.x86_64
   - tcpdump
@@ -27,8 +28,9 @@ install_packages:
   - zsh.x86_64
 
 clone_repo_list:
-  - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo"}
-  - {"name": "https://github.com/vim/vim.git", "dest": "/root/repo"}
+  - {"name": "https://github.com/ryuichi1208/dotfiles.git", "dest": "/root/repo/dotfiles"}
+  - {"name": "https://github.com/vim/vim.git", "dest": "/root/repo/vim"}
+  - {"name": "https://github.com/junegunn/fzf.git", "dest": "/root/.fzf"}
 
 kernel_parameter:
   - {"name": "net.core.somaxconn", "value": 8192}

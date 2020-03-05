@@ -1,0 +1,119 @@
+---
+
+- debug: var=ansible_all_ipv4_addresses
+- debug: var=ansible_default_ipv4.address
+
+- name: Create Users
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    groups:  "{{ item.group }}"
+    shell: /bin/bash
+  with_items:
+    - "{{ users }}"
+  when: users
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
+- name: Disable firewalld
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: false
+
+- name: Kernel Tuning
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+    ignoreerrors: yes
+  with_items:
+    - "{{ kernel_param }}"
+
+- name: Disable swap
+  command: swapoff -a
+  when: ansible_swaptotal_mb > 0
+
+- name: Yum Update
+  yum: name=* state=latest
+
+- name: Add Repository
+  yum:
+    name: "{{ repo_list }}"
+    state: present
+
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: Package installation
+  yum:
+    name: "{{ packages }}"
+
+- name: Perl Modulues installation
+  yum:
+    name: "{{ perl_mod_list }}"
+
+- name: Create directory for Git repository
+  file:
+    path: "{{ repo_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Clone Repository
+  git:
+    repo: "{{ item.url }}"
+    dest: /root/repository/{{ item.name }}
+    remote: upstream
+    accept_hostkey: yes
+  with_items: "{{ git_repos }}"
+
+- name: Pip Upgrade
+  shell: pip install --upgrade pip
+  register: result
+  changed_when: '"Requirement already" not in result.stdout'
+
+- name: Pip3.6 Upgrade
+  shell: pip3.6 install --upgrade pip
+  register: result
+  changed_when: '"Requirement already" not in result.stdout'
+
+- name: Pip Install setuptools
+  shell: pip3.6 install --upgrade setuptools
+  register: result
+  changed_when: '"Requirement already" not in result.stdout'
+
+- name: Pip Install Packages
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version | default(omit) }}"
+  with_items:
+    - "{{ pip_package_list }}"
+
+- name: Disable IPv6
+  shell: echo -e "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1" > /etc/sysctl.d/disable_ipv6.conf
+  args:
+    creates: /etc/sysctl.d/disable_ipv6.conf
+
+- name: Create /etc/hosts backup directory
+  file:
+    path: /home/admin/backup_cnf/etc
+    state: directory
+    owner: root
+    group: root
+
+- name: Keep default /etc/hosts
+  shell: cp -a /etc/hosts /home/admin/backup_cnf/etc/hosts_org
+  args:
+    creates: /home/admin/backup_cnf/etc/hosts_org
+
+- name: CommentOut IPv6 row at /etc/hosts
+  replace:
+    dest: /etc/hosts
+    regexp: "^::1"
+    replace: "#::1"

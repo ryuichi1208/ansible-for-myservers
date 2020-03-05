@@ -1,0 +1,86 @@
+users:
+  - { name: 'user01', uid: 1001, group: 'users', password: "{{ passw0rd }}", update_password: 'on_create', comment: 'user01' }
+  - { name: 'user02', uid: 1002, group: 'users', password: "{{ passw0rd }}", update_password: 'on_create', comment: 'user02' }
+
+passw0rd: "Qwer1234"
+
+packages:
+  - bash-completion
+  - git
+  - vim
+  - curl
+  - fontconfig
+  - gcc
+  - zlib-devel
+  - libffi-devel
+  - bzip2-devel
+  - openssl-devel
+  - ncurses-devel
+  - sqlite-devel
+  - readline-devel
+  - device-mapper
+  - device-mapper-persistent-data
+  - device-mapper-event
+  - device-mapper-libs
+  - device-mapper-event-libs
+  - tk-devel
+  - gdbm-devel
+  - libuuid-devel
+  - xz-devel
+  - python-pip
+  - python36u
+  - python36u-libs
+  - python36u-devel
+  - python36u-pip
+  - jq
+  - nodejs
+  - npm
+  - go
+  - zsh
+
+perl_mod_list:
+  - perl-App-cpanminus
+  - perl-IPC-Run
+  - perl-DBD-ODBC
+  - perl-Archive-Tar
+  - perl-XML-LibXML
+  - perl-Test-Simple
+  - perl-XMLRPC-Lite
+  - perl-LDAP
+  - perl-GD
+  - perl-CGI-Emulate-PSGI
+  - ImageMagick-perl
+  - perl-Authen-SASL
+  - perl-CGI
+  - perl-Mozilla-CA
+  - perl-YAML-Syck
+  - perl-IO-String
+  - perl-DB_File
+  - perl-Crypt-DSA
+  - perl-Cache-Memcached
+  - perl-Heap
+  - perl-File-NFSLock
+  - perl-Crypt-SSLeay
+  - perl-Text-CSV_XS
+  - expat-devel
+
+git_repos:
+  - { name: dotfiles, url: "https://github.com/ryuichi1208/dotfiles.git"}
+  - { name: c-websrv, url: "https://github.com/ryuichi1208/c-websrv.git" }
+  - { name: vim, url: "https://github.com/vim/vim.git" }
+
+pip_package_list:
+  - { name: "netmiko", version: "2.2.2" }
+  - { name: "ncclient", version: "0.6.0" }
+  - { name: "requests" }
+
+repo_dir:
+  - "/root/repository"
+
+repo_list:
+  - "https://centos7.iuscommunity.org/ius-release.rpm"
+
+kernel_param:
+  - { name: net.core.somaxconn, value: 8192 }
+  - { name: fs.file-max, value: 5242880 }
+  - { name: net.ipv4.ip_forward, value: 1 }
