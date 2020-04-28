@@ -7,15 +7,18 @@ working_directory:
 install_packages:
   - autoconf
   - bash-completion.noarch
+  - bind.x86_64
   - curl.x86_64
   - dstat
   - epel-release
   - gcc.x86_64
   - git.x86_64
   - golang.x86_64
+  - iftop.x86_64
   - jq.x86_64
   - luajit.x86_64
   - lua-devel.x86_64
+  - perf.x86_64
   - python3.x86_64
   - python3-pip.noarch
   - make.x86_64
@@ -24,7 +27,9 @@ install_packages:
   - strace.x86_64
   - sysstat.x86_64
   - tcpdump.x86_64
+  - traceroute.x86_64
   - telnet.x86_64
+  - vnstat.x86_64
   - wget.x86_64
   - zsh.x86_64
 
