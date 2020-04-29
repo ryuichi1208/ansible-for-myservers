@@ -23,6 +23,7 @@ install_packages:
   - python3-pip.noarch
   - make.x86_64
   - ncurses-devel.x86_64
+  - nmap-ncat.x86_64
   - net-tools.x86_64
   - strace.x86_64
   - sysstat.x86_64
