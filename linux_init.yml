@@ -17,5 +17,6 @@
     - name: common/kernel
     - name: common/locale
     - name: common/packages
+      tags: common/packages
     - name: common/network
     - name: middleware/docker

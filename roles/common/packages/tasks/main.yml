@@ -13,15 +13,17 @@
     - "{{ working_directory }}"
 
 - name: Clone Reposytory
+  tags: clone
   git:
     repo: "{{ item.name }}"
     dest: "{{ item.dest }}"
+    force: yes
   with_items:
     - "{{ clone_repo_list }}"
 
 - name: Delete bashrc
   file:
-    path: /root/.bashr
+    path: /root/.bashrc
     state: absent
 
 - name: Create symbolic link
@@ -29,3 +31,8 @@
     src: /root/repo/dotfiles/linux/bashrc
     dest: /root/.bashrc
     state: link
+
+- name: Install fzf
+  tags: fzf
+  shell: |
+    ${HOME}/.fzf/install --all
