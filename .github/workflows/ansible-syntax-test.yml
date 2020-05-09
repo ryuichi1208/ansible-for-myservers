@@ -14,7 +14,7 @@ env:
 
 jobs:
   lint:
-    name: Install Linter
+    name: Ansible Syntax Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -33,5 +33,5 @@ jobs:
       - name: Lint Yaml
         shell: bash
         run: |
-          find . -name *.yml -not -path '*/roles/mac/*'
-          find . -name *.yml -not -path '*/roles/mac/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.conf
+          find . -name *.yml -not -path 'roles/mac/*'
+          find . -name *.yml -not -path 'roles/mac/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.conf
