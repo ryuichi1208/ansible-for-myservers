@@ -14,13 +14,15 @@ install_packages:
   - gcc.x86_64
   - git.x86_64
   - golang.x86_64
-  - iftop.x86_64
+  # - iftop.x86_64
   - jq.x86_64
-  - luajit.x86_64
-  - lua-devel.x86_64
+  - lua.x86_64
+  # - luajit.x86_64
+  # - lua-devel.x86_64
   - perf.x86_64
-  - python3.x86_64
-  - python3-pip.noarch
+  # - python3.x86_64
+  # - python3-pip.noarch
+  - python36.x86_64
   - make.x86_64
   - ncurses-devel.x86_64
   - nmap-ncat.x86_64
@@ -30,7 +32,7 @@ install_packages:
   - tcpdump.x86_64
   - traceroute.x86_64
   - telnet.x86_64
-  - vnstat.x86_64
+  # - vnstat.x86_64
   - wget.x86_64
   - zsh.x86_64
 

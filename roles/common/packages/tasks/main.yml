@@ -19,3 +19,13 @@
   with_items:
     - "{{ clone_repo_list }}"
 
+- name: Delete bashrc
+  file:
+    path: /root/.bashr
+    state: absent
+
+- name: Create symbolic link
+  file:
+    src: /root/repo/dotfiles/linux/bashrc
+    dest: /root/.bashrc
+    state: link
