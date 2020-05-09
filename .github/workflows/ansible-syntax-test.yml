@@ -36,7 +36,13 @@ jobs:
       - name: Lint Yaml
         shell: bash
         run: |
-          find . -name '*.yml' -not -path '*/roles/mac/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.yaml
+          find . -name '*.yml' -not -path '*/roles/mac/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.yml
+          
+      # https://github.com/ansible/ansible-lint
+      - name: Lint Ansible
+        shell: bash
+        run: |
+          find . -maxdepth 1 -name '*.yml' | xargs ansible-lint -v linux_init.yml || :
 
       # https://github.com/ansible/ansible
       - name: Syntax Check
