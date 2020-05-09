@@ -33,4 +33,5 @@ jobs:
       - name: Lint Yaml
         shell: bash
         run: |
+          find . -name *.yml -not -path ".config" -not -path "*/roles/mac/*"
           find . -name *.yml -not -path ".config" -not -path "*/roles/mac/*" | xargs -L 1 yamllint -c .github/workflows/yamllint.conf
