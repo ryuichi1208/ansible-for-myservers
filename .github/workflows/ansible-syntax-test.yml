@@ -33,5 +33,6 @@ jobs:
       - name: Lint Yaml
         # shell: bash
         run: |
+          ls -lR
           find . -name *.yml
           find . -name *.yml -not -path 'roles/mac/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.conf
