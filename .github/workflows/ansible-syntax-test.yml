@@ -17,7 +17,7 @@ jobs:
     name: Ansible Syntax Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v1
@@ -31,7 +31,7 @@ jobs:
           python -m pip install yamllint
 
       - name: Lint Yaml
-        shell: bash
+        # shell: bash
         run: |
           find . -name *.yml
           find . -name *.yml -not -path 'roles/mac/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.conf
