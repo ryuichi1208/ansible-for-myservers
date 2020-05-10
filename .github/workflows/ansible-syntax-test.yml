@@ -8,7 +8,6 @@ on:
 
 env:
   # PATH: "$PYENV_ROOT/bin:$PATH"
-  PYTHON_VERSION: 3.7
   PYTHONDONTWRITEBYTECODE: 1
   PYTHONWARNINGS: ignore
   PYENV_ROOT: "$HOME/.pyenv"
@@ -23,7 +22,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${PYTHON_VERSION}
+          python-version: "3.7"
+          architecture: "x64"
 
       - name: Install pipenv and dependencies
         shell: bash
@@ -32,6 +32,7 @@ jobs:
           python -m pip install yamllint==1.23.0
           python -m pip install ansible==2.9.6
           python -m pip install ansible-lint==4.2.0
+          ls -l RUNNER_TOOL_CACHE/
 
       # https://github.com/adrienverge/yamllint
       - name: Lint Yaml
