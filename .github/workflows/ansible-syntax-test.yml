@@ -8,6 +8,7 @@ on:
 
 env:
   # PATH: "$PYENV_ROOT/bin:$PATH"
+  PYTHON_VERSION: 3.7
   PYTHONDONTWRITEBYTECODE: 1
   PYTHONWARNINGS: ignore
   PYENV_ROOT: "$HOME/.pyenv"
@@ -22,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: ${PYTHON_VERSION}
 
       - name: Install pipenv and dependencies
         shell: bash
