@@ -4,7 +4,7 @@
   become: true
   become_user: root
   become_method: su
-  gather_facts: false
+  gather_facts: true
 
   pre_tasks:
     - name: Update yum packages
