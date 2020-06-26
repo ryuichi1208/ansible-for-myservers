@@ -19,4 +19,8 @@
     - name: common/packages
       tags: common/packages
     - name: common/network
-    - name: middleware/docker
+    # - name: middleware/docker
+    - name: cmdline/peco
+      tags: peco
+    - name: cmdline/vim
+      tags: vim
