@@ -3,6 +3,7 @@
 - name: Install epel repo
   yum:
     name: "epel-release.noarch"
+    state: latest
 
 - name: Install basic packages
   yum:
@@ -32,9 +33,11 @@
 
 - name: Create symbolic link
   file:
-    src: /root/repo/dotfiles/linux/bashrc
-    dest: /root/.bashrc
+    src: "{{ item.src}}"
+    dest: "{{ item.dest }}"
     state: link
+  with_items:
+    - "{{ dotfiles_link }}"
 
 - name: Install fzf
   tags: fzf
