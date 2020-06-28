@@ -15,6 +15,7 @@ install_packages:
   - gcc-c++.x86_64
   - git.x86_64
   - golang.x86_64
+  - htop.x86_64
   - iftop.x86_64
   - jq.x86_64
   - lua.x86_64
