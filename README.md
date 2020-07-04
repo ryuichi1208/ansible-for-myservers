@@ -1,4 +1,4 @@
-#ansible-playbook -i inventory/inventory.ini linux_init.yml ansible-for-myservers
+## ansible-playbook -i inventory/inventory.ini linux_init.yml ansible-for-myservers
 Setup repository for my cute servers.
 
 ## Ansible style guide
