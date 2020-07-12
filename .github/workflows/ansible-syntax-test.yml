@@ -6,8 +6,11 @@ on:
       - master
       - develop
   workflow_dispatch:
-    branches:
-      - master
+    inputs:
+      name:
+        required: false
+        description: Test Manual run
+        default: ""
 
 env:
   # PATH: "$PYENV_ROOT/bin:$PATH"
