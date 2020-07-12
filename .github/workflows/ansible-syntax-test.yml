@@ -5,6 +5,9 @@ on:
     branches:
       - master
       - develop
+  workflow_dispatch:
+    branches:
+      - master
 
 env:
   # PATH: "$PYENV_ROOT/bin:$PATH"
