@@ -22,4 +22,7 @@ $ ansible-config dump --changed-only
 
 # exec
 $ ansible-playbook -i inventory/inventory.ini linux_init.yml --diff
+
+# step exec
+$ ansible-playbook -i inventory/inventory.ini linux_init.yml --step
 ```
