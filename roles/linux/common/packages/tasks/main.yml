@@ -1,0 +1,7 @@
+---
+
+- name: Add OS Vars
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install Packages
+  include_tasks: "{{ ansible_os_family }}.yml"

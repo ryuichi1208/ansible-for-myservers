@@ -1,0 +1,18 @@
+---
+
+- include_tasks: "install.yml"
+
+- name: Change TimeZone to Asia/Tokyo
+  file:
+    path: /etc/localtime
+    state: link
+    src: /usr/share/zoneinfo/Asia/Tokyo
+    force: true
+
+- name: Start chronyd
+  systemd:
+    name: chronyd
+    state: started
+    enabled: true
+
+- include_tasks: "configure.yml"

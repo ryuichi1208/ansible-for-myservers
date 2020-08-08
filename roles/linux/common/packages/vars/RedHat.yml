@@ -1,0 +1,20 @@
+---
+
+install_packages:
+  - autoconf.noarch
+  - bash-completion.noarch
+  - curl.x86_64
+  - expat-devel.x86_64
+  - gcc.x86_64
+  - gcc-c++.x86_64
+  - git.x86_64
+  - libcurl-devel.x86_64
+  - libsepol-devel.x86_64
+  - make.x86_64
+  - ncurses-devel.x86_64
+  - sysstat.x86_64
+  - tcpdump.x86_64
+  - wget.x86_64
+  - yum-utils.noarch
+
+update_cache_enabled: true
