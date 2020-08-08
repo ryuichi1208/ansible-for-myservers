@@ -53,8 +53,8 @@ jobs:
       - name: Lint Yaml
         shell: bash
         run: |
-          find . -name '*.yml' -not -path '*/roles/mac/*' -not -path './.github/*' | xargs -L 1 yamllint -c .github/workflows/yamllint.yml
-          
+          find . -name '*.yml' -not -path '*/roles/mac/*' -not -path './.github/*' | xargs -L 1 yamllint -c ./yamllint.yml
+
       # https://github.com/ansible/ansible-lint
       - name: Lint Ansible
         shell: bash
