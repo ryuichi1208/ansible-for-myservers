@@ -1,4 +1,0 @@
-file_system: xfs
-device: /dev/sdb
-mount_point: /mnt/xfs
-reboot: true

@@ -1,5 +1,0 @@
-dotfiles_src_path: "/root/repo/dotfiles/linux"
-
-dotfiles_link:
-  - {"src": "{{ dotfiles_src_path }}/zshrc", "dest": "/root/.zshrc"}
-  - {"src": "{{ dotfiles_src_path }}/vimrc", "dest": "/root/.vimrc"}
