@@ -1,3 +1,5 @@
+![Ansible syntax test](https://github.com/ryuichi1208/ansible-for-myservers/workflows/Ansible%20syntax%20test/badge.svg?branch=master)
+
 ## ansible-playbook -i inventory/inventory.ini linux_init.yml ansible-for-myservers
 Setup repository for my cute servers.
 
