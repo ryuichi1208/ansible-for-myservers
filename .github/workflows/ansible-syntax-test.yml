@@ -66,4 +66,4 @@ jobs:
       - name: Syntax Check
         shell: bash
         run: |
-          find . -maxdepth 1 -name '*.yml' | xargs ansible-playbook -i inventory/inventory.ini --syntax-check -vvv
+          find . -maxdepth 1 -name 'linux*.yml' | xargs ansible-playbook -i inventory/inventory.ini --syntax-check -vvv
