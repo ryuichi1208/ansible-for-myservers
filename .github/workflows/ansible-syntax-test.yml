@@ -60,7 +60,7 @@ jobs:
       - name: Lint Ansible
         shell: bash
         run: |
-          find . -maxdepth 1 -name '*.yml' | xargs ansible-lint -v linux_init.yml || :
+          find . -maxdepth 1 -name 'linux*.yml' | xargs ansible-lint -v linux_init.yml || :
 
       # https://github.com/ansible/ansible
       - name: Syntax Check
