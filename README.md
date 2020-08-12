@@ -25,5 +25,8 @@ $ ansible-playbook -i inventory/inventory.ini linux_init.yml --step
 
 # docker exec
 $ docker container run -it -v $(pwd):/tmp mp001 ansible --version
+
+# linter
+$ docker container run -it -v $(pwd):/tmp mp001 ansible-lint /tmp/localhost.yml
 ```
 
