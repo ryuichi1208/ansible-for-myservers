@@ -3,7 +3,7 @@
 - name: Install epel repo
   yum:
     name: "epel-release.noarch"
-    state: latest
+    state: present
 
 - name: Install basic packages
   yum:
