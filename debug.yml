@@ -1,0 +1,54 @@
+---
+- name: Initialize OS setting for Linux Servers
+  hosts: localhost
+  become: true
+  become_user: root
+  become_method: su
+  gather_facts: false
+  connection: local
+
+  vars:
+    list1: [2, 3, 4, 8, 1]
+    list2: [1, 2, [3, 4], [5, 6, [7, 8, 9]], 10]
+    list3:
+      aaa:
+        - bbb: ccc
+        - ddd:
+            - eee
+            - fff
+            - ggg
+    url: "http://user:password@www.acme.com:9000/dir/index.html?query=term#fragment"
+
+  tasks:
+    - ping:
+    - name: set_fact
+      set_fact:
+        fact_test: "fact-fact"
+
+    - name: debug
+      debug:
+        msg:
+          - "max = {{ list1 | max}}"
+          - "min = {{ list1 | min }}"
+          - "flatten = {{ list2 | flatten }}"
+          - "flatten + union + uniq = {{ list1 | union(list2 | flatten) | unique }}"
+          - "tojson = {{ list3 | to_json }}"
+          - "toyaml = {{ list3 | to_yaml }}"
+          - "default = {{ list1 | default([1, 2, 4]) }}"
+          - "default = {{ list4 | default([1, 2, 4]) }}"
+          - "set_fact = {{ fact_test }}"
+          - "url_split = {{ url | urlsplit }}"
+          - "url_split = {{ url | urlsplit('path') }}"
+          - "rand_mac_add = {{ '52:54:00' | random_mac }}"
+          - "rand_list = {{ [1, 2, 3, a, b] | random }}"
+          - "rand_steps = {{ 101 | random(start=1, step=10) }}"
+          - "ip_filter = {{ '192.168.1.1/24' | ipaddr('address') }}"
+          - "hash = {{ 'test1' | hash('sha1') }}"
+          - "hash = {{ 'test1' | hash('md5') }}"
+          - "hash = {{ 'test1' | checksum }}"
+          - "comment = {{ 'Custom style' | comment('plain', prefix='#######\n#', postfix='#\n#######\n   ###\n    #') }}"
+          - "basename = {{ '/home/dir/aaa.csv' | basename }}"
+
+  pre_tasks:
+    - name: Pring Server Info
+      debug: var=ansible_facts

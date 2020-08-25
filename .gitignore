@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 log/ansible.log
 .bash_history
+.ansible/
 
 # C extensions
 *.so

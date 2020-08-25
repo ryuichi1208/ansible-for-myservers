@@ -27,6 +27,6 @@ $ ansible-playbook -i inventory/inventory.ini linux_init.yml --step
 $ docker container run -it -v $(pwd):/tmp mp001 ansible --version
 
 # linter
-$ docker container run -it -v $(pwd):/tmp mp001 ansible-lint /tmp/localhost.yml
+$ make ci ARG=${playbook_file_name}
 ```
 
