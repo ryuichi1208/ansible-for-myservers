@@ -15,4 +15,5 @@
     # - name: linux/common/locale
     # - name: linux/common/packages
     # - name: linux/common/kernel
-    - name: linux/common/networks
+    # - name: linux/common/networks
+    - name: linux/middleware/node_exporter
