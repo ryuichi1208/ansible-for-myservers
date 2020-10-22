@@ -1,13 +1,15 @@
 ---
 - name: Initialize OS setting for Linux Servers
-  hosts: localhost
-  become: true
+  hosts: linux_servers
+  become: false
   become_user: root
   become_method: su
-  gather_facts: false
+  gather_facts: true
   connection: local
 
   vars:
+    a: 10
+    b: 20
     list1: [2, 3, 4, 8, 1]
     list2: [1, 2, [3, 4], [5, 6, [7, 8, 9]], 10]
     list3:
@@ -20,7 +22,7 @@
     url: "http://user:password@www.acme.com:9000/dir/index.html?query=term#fragment"
 
   tasks:
-    - ping:
+    # - ping:
     - name: set_fact
       set_fact:
         fact_test: "fact-fact"
@@ -28,6 +30,7 @@
     - name: debug
       debug:
         msg:
+          - "{{ ansible_env.PWD }}"
           - "max = {{ list1 | max}}"
           - "min = {{ list1 | min }}"
           - "flatten = {{ list2 | flatten }}"

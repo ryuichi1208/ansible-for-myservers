@@ -15,10 +15,10 @@ debug: build
 
 .PHONY: ci
 ci: build
-	@export DOCKER_CONTENT_TRUST=0 DOCKER_BUILDKIT=1
-	@echo "==== yamllint ====\n"
-	@docker container run -it -v ${WORKDIR}:/root ansible_test yamllint ${ARG}
-	@echo "==== syntax-check ====\n"
-	@docker container run -it -v ${WORKDIR}:/root ansible_test ansible-playbook --syntax-check -vv ${ARG}
-	@echo "==== ansible-lint ====\n"
-	@docker container run -it -v ${WORKDIR}:/root ansible_test ansible-lint ${ARG}
+	@-export DOCKER_CONTENT_TRUST=0 DOCKER_BUILDKIT=1
+	@-echo "==== yamllint ====\n"
+	@-docker container run -it -v ${WORKDIR}:/root ansible_test yamllint ${ARG}
+	@-echo "==== syntax-check ====\n"
+	@-docker container run -it -v ${WORKDIR}:/root ansible_test ansible-playbook --syntax-check -vv ${ARG}
+	@-echo "==== ansible-lint ====\n"
+	@-docker container run -it -v ${WORKDIR}:/root ansible_test ansible-lint -vv ${ARG}
