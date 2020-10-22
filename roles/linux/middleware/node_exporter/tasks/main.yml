@@ -1,0 +1,25 @@
+---
+- name: Add prometheus User
+  user:
+    name: "{{ username }}"
+  vars:
+    username: prometheus
+
+- name: Install node_exporter
+  unarchive:
+    src: "{{ node_exporter_url }}"
+    dest: "/opt/"
+    remote_src: yes
+
+- name: Create symlink
+  file:
+    src: "/opt/node_exporter-1.0.1.linux-amd64"
+    dest: "{{ node_exporter_install_dir }}"
+    state: link
+
+- name: Copy node service file
+  copy:
+    src: prometheus-node-exporter.service
+    dest: /etc/systemd/system/
+  notify:
+    daemon-reload

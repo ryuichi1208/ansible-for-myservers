@@ -1,0 +1,14 @@
+---
+
+- name: Clone dotfiles repo
+  git:
+    repo: "https://github.com/ryuichi1208/dotfiles.git"
+    depth: 1
+    dest: "/root/repo/dotfiles"
+
+- name: Create symlinks
+  file:
+    src: "/root/repo/dotfiles/linux/vimrc"
+    dest: "/root/.vimrc"
+    state: link
+

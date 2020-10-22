@@ -1,0 +1,17 @@
+---
+
+- name: mkdir vim make dir
+  file:
+    path: "{{ vim_make_dir  }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Clone vim repo
+  git:
+    repo: https://github.com/vim/vim.git
+    depth: 1
+    dest: "{{ vim_make_dir }}/vim"
+    version: "{{ vim_tags  }}"
+  notify: build_install

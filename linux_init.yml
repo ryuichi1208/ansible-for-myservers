@@ -6,13 +6,16 @@
   become_method: su
   gather_facts: true
 
-  pre_tasks:
-    - name: Pring Server Info
-      debug: var=ansible_facts
+  # pre_tasks:
+  #   - name: Pring Server Info
+  #     debug: var=ansible_facts
 
   roles:
-    # - name: linux/common/security
-    # - name: linux/common/locale
-    # - name: linux/common/packages
-    # - name: linux/common/kernel
-    - name: linux/common/networks
+    #- name: linux/common/security
+    #- name: linux/common/locale
+    #- name: linux/common/packages
+    #- name: linux/common/kernel
+    #- name: linux/common/networks
+    #- name: linux/middleware/node_exporter
+    - name: linux/cmdtools/dotfiles
+    - name: linux/cmdtools/vim

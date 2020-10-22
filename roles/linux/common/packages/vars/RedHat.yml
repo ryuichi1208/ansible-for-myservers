@@ -10,8 +10,13 @@ install_packages:
   - git.x86_64
   - libcurl-devel.x86_64
   - libsepol-devel.x86_64
+  - lua-devel.x86_64
   - make.x86_64
   - ncurses-devel.x86_64
+  - python3.x86_64
+  - python3-devel.x86_64
+  - ruby.x86_64
+  - ruby-devel.x86_64
   - sysstat.x86_64
   - tcpdump.x86_64
   - wget.x86_64
