@@ -30,6 +30,8 @@
     - name: debug
       debug:
         msg:
+          - "{{ [1, 2, 3, 4] | zip(['a','b','c','d','e','f']) | list}}"
+          - "{{ [1,2,3] | zip_longest(['a','b','c','d','e','f'], [21, 22, 23], fillvalue='X') | list }}"
           - "{{ ansible_env.PWD }}"
           - "max = {{ list1 | max}}"
           - "min = {{ list1 | min }}"
