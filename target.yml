@@ -1,0 +1,8 @@
+---
+
+- hosts: localaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  become: true
+
+- tasks:
+  - yum:
+      name: "httpd"
