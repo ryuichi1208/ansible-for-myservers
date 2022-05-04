@@ -29,4 +29,3 @@ $ docker container run -it -v $(pwd):/tmp mp001 ansible --version
 # linter
 $ make ci ARG=${playbook_file_name}
 ```
-
